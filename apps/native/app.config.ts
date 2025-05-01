@@ -3,8 +3,7 @@ import { ExpoConfig } from 'expo/config'
 const BUNDLE_IDENTIFIER =
   process.env.EXPO_PUBLIC_BUNDLE_IDENTIFIER || 'com.solito.payments'
 
-const APP_URL =
-  process.env.EXPO_PUBLIC_APP_URL || 'https://solito-payments.vercel.app'
+const APP_URL = process.env.EXPO_PUBLIC_APP_URL || 'solito-payments.vercel.app'
 
 // TODO does expo not support importing these from the shared package?
 const PUBLIC_ENV = {
