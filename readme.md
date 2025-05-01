@@ -20,7 +20,7 @@ This monorepo implemented `npx create-solito-app@latest`.
 - `stripe` for payments
 - `firebase` for authentication (you can easily swap it out)
 - React Navigation 7
-- React 19 (read more below on the Solito [compatibility docs](https://solito.dev/compatibility))
+- React 19 (see Solito [compatibility docs](https://solito.dev/compatibility))
 - React Compiler
 
 ## 🗂 Folder layout
