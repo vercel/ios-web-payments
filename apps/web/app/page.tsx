@@ -1,12 +1,13 @@
 'use client'
-import { View, Text, StyleSheet, Linking } from 'react-native'
-import { Image } from 'expo-image'
+import { View, Text, StyleSheet } from 'react-native'
 
 export default function Page() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Solito iOS + web payments example</Text>
+        <Text style={styles.title}>
+          Zero-commission iOS app payments with Solito.
+        </Text>
       </View>
 
       <View style={styles.content}>
