@@ -19,4 +19,8 @@ export const PUBLIC_ENV = {
     // avoid throwing when it's not used on web
     return JSON.parse(str!)
   },
+  SCHEME:
+    process.env.EXPO_PUBLIC_SCHEME ||
+    process.env.NEXT_PUBLIC_SCHEME ||
+    'solito-payments',
 }

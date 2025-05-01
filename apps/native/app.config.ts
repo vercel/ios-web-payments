@@ -9,13 +9,14 @@ const APP_URL = process.env.EXPO_PUBLIC_APP_URL || 'solito-payments.vercel.app'
 const PUBLIC_ENV = {
   BUNDLE_IDENTIFIER,
   APP_URL,
+  SCHEME: 'solito-payments',
 }
 
 export default {
-  name: 'solito-payments',
+  name: 'Solito Payments',
   slug: 'solito-payments',
   version: '1.0.0',
-  scheme: 'solito-payments',
+  scheme: PUBLIC_ENV.SCHEME,
   platforms: ['ios', 'android'],
   ios: {
     bundleIdentifier: PUBLIC_ENV.BUNDLE_IDENTIFIER,
@@ -42,4 +43,12 @@ export default {
     reactCanary: true,
     reactCompiler: true,
   },
+  plugins: [
+    [
+      'expo-web-browser',
+      {
+        experimentalLauncherActivity: true,
+      },
+    ],
+  ],
 } satisfies ExpoConfig
