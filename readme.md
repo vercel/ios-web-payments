@@ -2,7 +2,7 @@
 
 Example app of a Solito app that uses Stripe checkout on Web with an iOS app.
 
-As of May 1, 2025, you can use web-based checkout on iOS without incurring Apple's commission.
+As of April 30, 2025, you can use web-based checkout on iOS without incurring Apple's commission.
 
 Even though you're redirecting users to Web to complete their purchase, **Apple pay is still supported**. See the demo video below.
 
