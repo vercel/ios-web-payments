@@ -16,14 +16,14 @@ export function Button({
         alignItems: 'center',
         height: 44,
         borderRadius: 99,
-        backgroundColor: inverse ? '#999' : 'black',
+        backgroundColor: !inverse ? '#99999950' : 'black',
         paddingHorizontal: 16,
       }}
       onPress={onPress}
     >
       <Text
         style={{
-          color: inverse ? 'black' : 'white',
+          color: !inverse ? 'black' : 'white',
           fontWeight: 'bold',
           fontSize: 18,
         }}

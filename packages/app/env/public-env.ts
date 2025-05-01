@@ -17,9 +17,3 @@ export const PUBLIC_ENV = {
     return JSON.parse(process.env.EXPO_PUBLIC_FIREBASE_CONFIG_JSON!)
   },
 }
-
-// if (process.env.NODE_ENV === 'development') {
-//   PUBLIC_ENV.APP_URL = 'localhost:3000'
-//   PUBLIC_ENV.STRIPE_CHECKOUT_URL =
-//     'http://localhost:3000/api/stripe/checkout-session'
-// }

@@ -1,11 +1,14 @@
 import { PUBLIC_ENV } from 'app/env/public-env'
-import { getApp, initializeApp } from 'firebase/app'
+import { getApp, getApps, initializeApp } from 'firebase/app'
 import {
   initializeAuth,
   signInAnonymously,
   onIdTokenChanged,
   User,
+  // @ts-ignore
   getReactNativePersistence,
+  signOut,
+  getAuth,
 } from 'firebase/auth'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -22,6 +25,24 @@ if (!auth) {
   })
 }
 
+// const makeApp = (): ReturnType<typeof initializeApp> => {
+//   const [app] = getApps()
+//   if (!app) {
+//     return initializeApp(PUBLIC_ENV.FIREBASE_CONFIG)
+//   }
+
+//   return app
+// }
+
+// const makeAuth = (): ReturnType<typeof initializeAuth> => {
+//   const auth = getAuth(makeApp())
+//   if (!auth) {
+//     return initializeAuth(getApp(), {
+//       persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+//     })
+//   }
+//   return auth
+// }
 const getToken = async () => {
   const user = auth.currentUser
   if (!user) return null
@@ -36,6 +57,9 @@ export const Auth = {
   },
   onIdTokenChanged: (callback: (user: null | { uid: string }) => void) => {
     onIdTokenChanged(auth, callback)
+  },
+  signOut: async () => {
+    await signOut(auth)
   },
   getToken,
   AuthGate({

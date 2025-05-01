@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { Button } from 'react-native'
+import { Auth } from 'app/features/auth/client'
 
 import { HomeScreen } from 'app/features/home/screen'
-import { UserDetailScreen } from 'app/features/user/detail-screen'
 
 const Stack = createNativeStackNavigator<{
   home: undefined
@@ -18,6 +19,14 @@ export function NativeNavigation() {
         component={HomeScreen}
         options={{
           title: 'Solito Payments Example',
+          headerShown: false,
+          headerRight: () => (
+            <Button
+              title="Sign out"
+              onPress={() => Auth.signOut()}
+              color="black"
+            />
+          ),
         }}
       />
     </Stack.Navigator>

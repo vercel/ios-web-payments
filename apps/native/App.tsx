@@ -4,6 +4,7 @@ import { Auth } from 'app/features/auth/client'
 import { StyleSheet, View } from 'react-native'
 import { useState } from 'react'
 import { Button } from 'app/components/button'
+
 export default function App() {
   return (
     <Provider>
