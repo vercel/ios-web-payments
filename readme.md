@@ -1,8 +1,8 @@
 # Solito iOS Web Payments Example
 
-Example app of a Solito app that uses Stripe checkout on Web (Next.js) with a native app (React Native).
+Example app of a Solito app that uses Stripe checkout on Web with an iOS app.
 
-As of May 1, 2025, you can use web-pased checkout on iOS without incurring Apple's commission.
+As of May 1, 2025, you can use web-based checkout on iOS without incurring Apple's commission.
 
 <!-- 👾 [View the website](https://example.solito.dev)
 
@@ -18,15 +18,13 @@ This monorepo implemented `npx create-solito-app@latest`.
 
 - `solito` for cross-platform navigation
 - `moti` for animations
-- Expo SDK 53
 - Next.js 15
+- Expo SDK 53
 - `stripe` for payments
 - `firebase` for authentication (you can easily swap it out)
 - React Navigation 7
-- React 19 (read more below)
+- React 19 (read more below on the Solito [compatibility docs](https://solito.dev/compatibility))
 - React Compiler
-
-For more, see the [compatibility docs](https://solito.dev/compatibility).
 
 ## 🗂 Folder layout
 
@@ -34,6 +32,9 @@ For more, see the [compatibility docs](https://solito.dev/compatibility).
 
   - `native`
   - `web`
+    - `api`
+      - Checkout routes
+      - Apple `.well-known` route
 
 - `packages` shared packages across apps
   - `app` you'll be importing most files from `app/`
@@ -48,48 +49,18 @@ You can add other folders inside of `packages/` if you know what you're doing an
 - Install dependencies: `yarn`
 
 - Next.js local dev: `yarn web`
-  - Runs `yarn next`
+  - Runs `yarn next` in `apps/web`
 - Expo local dev:
   - First, build a dev client onto your device or simulator
-    - `cd apps/expo`
-    - Then, either `expo run:ios`, or `eas build`
+    - `cd apps/native`
+    - Then, either `npx expo run:ios`
   - After building the dev client, from the root of the monorepo...
-    - `yarn native` (This runs `expo start --dev-client`)
+    - `yarn native` (This runs `npx expo start --dev-client`)
 
-## 🆕 Add new dependencies
+## 🎙 About Solito
 
-### Pure JS dependencies
+See the [Solito docs](https://solito.dev) for more information.
 
-If you're installing a JavaScript-only dependency that will be used across platforms, install it in `packages/app`:
+## About this example
 
-```sh
-cd packages/app
-yarn add date-fns
-cd ../..
-yarn
-```
-
-### Native dependencies
-
-If you're installing a library with any native code, you must install it in `apps/expo`:
-
-```sh
-cd apps/expo
-yarn add react-native-reanimated
-
-cd ../..
-yarn
-```
-
-You can also install the native library inside of `packages/app` if you want to get autoimport for that package inside of the `app` folder. However, you need to be careful and install the _exact_ same version in both packages. If the versions mismatch at all, you'll potentially get terrible bugs. This is a classic monorepo issue. I use `lerna-update-wizard` to help with this (you don't need to use Lerna to use that lib).
-
-## 🎙 About the creator
-
-Follow Fernando Rojo on Twitter: [@FernandoTheRojo](https://twitter.com/fernandotherojo)
-
-## 🧐 Why use Expo + Next.js?
-
-See my talk about this topic at Next.js Conf 2021:
-
-<a href="https://www.youtube.com/watch?v=0lnbdRweJtA"><img width="1332" alt="image" src="https://user-images.githubusercontent.com/13172299/157299915-b633e083-f271-48c6-a262-7b7eef765be5.png">
-</a>
+This example was created using the [Solito starter](https://github.com/nandorojo/solito/tree/master/example-monorepos/blank). Please refer to that starter's README for more information on development.
