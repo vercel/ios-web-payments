@@ -29,7 +29,7 @@ export function HomeScreen() {
         <View style={{ gap: 8, opacity: isLoading ? 0.5 : 1 }}>
           <Button
             inverse
-            title="Checkout"
+            title="Checkout & Save 30%"
             onPress={async () => {
               setIsLoading(true)
               try {
@@ -61,7 +61,7 @@ const H1 = ({ children }: { children: React.ReactNode }) => {
     <Text
       style={{
         fontWeight: '700',
-        fontSize: 24,
+        fontSize: 20,
         letterSpacing: -0.2,
         textAlign: 'center',
       }}

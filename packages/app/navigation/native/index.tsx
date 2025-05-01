@@ -20,7 +20,7 @@ export function NativeNavigation() {
         name="home"
         component={HomeScreen}
         options={{
-          title: 'Solito Payments Example',
+          title: 'Solito Payments',
           headerShown: false,
           headerRight: () => (
             <Button
