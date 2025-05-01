@@ -48,7 +48,13 @@ function Authenticate() {
         title="Sign in"
         onPress={() => {
           setIsSigningIn(true)
-          Auth.signInAnonymously().finally(() => setIsSigningIn(false))
+          Auth.signInAnonymously()
+            .catch((error) => {
+              console.error(`[apps/native/App.tsx] Auth.signInAnonymously error. Did you enable it in the Firebase dashboard? 
+                
+${error.message}`)
+            })
+            .finally(() => setIsSigningIn(false))
         }}
       />
     </View>
