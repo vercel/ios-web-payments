@@ -18,8 +18,8 @@ This monorepo implemented `npx create-solito-app@latest`.
 
 - `solito` for cross-platform navigation
 - `moti` for animations
-- Next.js 15
-- Expo SDK 53
+- Next.js 15 for API routes
+- Expo 53 + React Native for the native app
 - `stripe` for payments
 - `firebase` for authentication (you can easily swap it out)
 - React Navigation 7
