@@ -1,4 +1,4 @@
-import { CheckoutErrorScreen } from 'app/navigation/native/CheckoutErrorScreen'
+import { CheckoutErrorScreen } from 'app/features/checkout/cancel/screen'
 
 export default function CheckoutCancelPage() {
   return <CheckoutErrorScreen />

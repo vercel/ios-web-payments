@@ -3,8 +3,8 @@ import { Button } from 'react-native'
 import { Auth } from 'app/features/auth/client'
 
 import { HomeScreen } from 'app/features/home/screen'
-import { CheckoutSuccessScreen } from 'app/navigation/native/CheckoutSuccessScreen'
-import { CheckoutErrorScreen } from 'app/navigation/native/CheckoutErrorScreen'
+import { CheckoutSuccessScreen } from 'app/features/checkout/success/screen'
+import { CheckoutErrorScreen } from 'app/features/checkout/cancel/screen'
 
 const Stack = createNativeStackNavigator<{
   home: undefined
@@ -35,7 +35,7 @@ export function NativeNavigation() {
         name="checkout-success"
         component={CheckoutSuccessScreen}
         options={{
-          title: 'Payment ✅',
+          title: 'Solito Payment',
         }}
       />
       <Stack.Screen
