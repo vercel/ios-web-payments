@@ -1,6 +1,6 @@
 # Solito iOS Web Payments Example
 
-Example app of a Solito app that uses Stripe checkout on Web with an iOS app.
+Example Solito app that uses Stripe checkout on Web with an iOS app.
 
 As of April 30, 2025, you can use web-based checkout on iOS without incurring Apple's commission.
 
