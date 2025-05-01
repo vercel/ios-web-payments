@@ -15,7 +15,8 @@ export const PUBLIC_ENV = {
   get FIREBASE_CONFIG() {
     const str =
       process.env.EXPO_PUBLIC_FIREBASE_CONFIG_JSON ||
-      process.env.NEXT_PUBLIC_FIREBASE_CONFIG_JSON
+      process.env.NEXT_PUBLIC_FIREBASE_CONFIG_JSON ||
+      '{}'
     // avoid throwing when it's not used on web
     return JSON.parse(str!)
   },

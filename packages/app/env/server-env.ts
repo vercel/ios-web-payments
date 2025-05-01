@@ -7,7 +7,8 @@ export const SERVER_ENV = {
   get FIREBASE_SERVICE_ACCOUNT_JSON() {
     const str = process.env.FIREBASE_SERVICE_ACCOUNT_JSON
     if (!str) {
-      throw new Error('FIREBASE_SERVICE_ACCOUNT_JSON is not set')
+      console.error('process.env.FIREBASE_SERVICE_ACCOUNT_JSON is not set')
+      return
     }
     return JSON.parse(str)
   },
