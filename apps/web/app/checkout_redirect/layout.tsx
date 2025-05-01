@@ -1,5 +1,7 @@
 'use client'
 
+// fallback if universal links fail. can happen in Chrome browsers
+
 import { PUBLIC_ENV } from 'app/env/public-env'
 import { useEffect } from 'react'
 
