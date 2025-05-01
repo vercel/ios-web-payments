@@ -11,10 +11,16 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage'
 
-const app = initializeApp(PUBLIC_ENV.FIREBASE_CONFIG)
-const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(ReactNativeAsyncStorage),
-})
+let app: ReturnType<typeof initializeApp> | undefined
+if (!app) {
+  app = initializeApp(PUBLIC_ENV.FIREBASE_CONFIG)
+}
+let auth: ReturnType<typeof initializeAuth> | undefined
+if (!auth) {
+  auth = initializeAuth(app, {
+    persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+  })
+}
 
 const getToken = async () => {
   const user = auth.currentUser
@@ -40,6 +46,7 @@ export const Auth = {
         | { loading: true }
         | {
             user: User | null
+            loading: false
           }
     ) => React.ReactNode
   }) {
@@ -52,6 +59,6 @@ export const Auth = {
       return children({ loading: true })
     }
 
-    return children({ user })
+    return children({ user, loading: false })
   },
 }

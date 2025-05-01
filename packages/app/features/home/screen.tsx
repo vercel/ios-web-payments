@@ -2,6 +2,8 @@
 
 import { Text, View, Linking } from 'react-native'
 import { PUBLIC_ENV } from 'app/env/public-env'
+import { Button } from 'app/components/button'
+import { Auth } from 'app/features/auth/client'
 
 export function HomeScreen() {
   return (
@@ -14,14 +16,16 @@ export function HomeScreen() {
         gap: 32,
       }}
     >
-      <H1>Welcome to Solito Payments.</H1>
-      <Text
-        style={{ fontSize: 16, fontWeight: 'bold', color: 'blue' }}
+      <H1>Zero-commission payments.</H1>
+      <Button
+        title="Checkout"
         onPress={async () => {
+          const token = await Auth.getToken()
           const session = await fetch(PUBLIC_ENV.STRIPE_CHECKOUT_URL, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
             },
           }).then((res) => res.json())
 
@@ -29,15 +33,17 @@ export function HomeScreen() {
             Linking.openURL(session.url)
           }
         }}
-      >
-        Try clicking me to checkout!
-      </Text>
+      />
     </View>
   )
 }
 
 const H1 = ({ children }: { children: React.ReactNode }) => {
-  return <Text style={{ fontWeight: '800', fontSize: 24 }}>{children}</Text>
+  return (
+    <Text style={{ fontWeight: '700', fontSize: 24, letterSpacing: -0.2 }}>
+      {children}
+    </Text>
+  )
 }
 
 const P = ({ children }: { children: React.ReactNode }) => {
