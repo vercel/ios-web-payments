@@ -31,7 +31,7 @@ export default function Page() {
                 target: '_blank',
               }}
             >
-              Deploy the API to Vercel
+              Clone the repo & deploy the API to Vercel
             </Text>
           </Text>
           <Text style={styles.featureItem} role="listitem">
@@ -46,7 +46,7 @@ export default function Page() {
                 target: '_blank',
               }}
             >
-              Clone the GitHub repo
+              Reference the README on GitHub to run the iOS app locally
             </Text>
           </Text>
         </View>
