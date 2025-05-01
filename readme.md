@@ -1,20 +1,18 @@
-# Blank Solito Example Monorepo 🕴
+# Solito iOS Web Payments Example
 
-```sh
-npx create-solito-app@latest my-solito-app
-```
+Example app of a Solito app that uses Stripe checkout on Web (Next.js) with a native app (React Native).
 
-👾 [View the website](https://example.solito.dev)
+As of May 1, 2025, you can use web-pased checkout on iOS without incurring Apple's commission.
+
+<!-- 👾 [View the website](https://example.solito.dev)
 
 ## ⚡️ Instantly clone & deploy
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnandorojo%2Fsolito%2Ftree%2Fmaster%2Fexample-monorepos%2Fblank&env=ENABLE_ROOT_PATH_BUILD_CACHE&root-directory=apps/web&envDescription=Set%20this%20environment%20variable%20to%201%20for%20Turborepo%20to%20cache%20your%20node_modules.&envLink=https%3A%2F%2Ftwitter.com%2Fjaredpalmer%2Fstatus%2F1488954563533189124&project-name=solito-app&repo-name=solito-app&demo-title=Solito%20App%20%E2%9A%A1%EF%B8%8F&demo-description=React%20Native%20%2B%20Next.js%20starter%20with%20Solito.%20Made%20by%20Fernando%20Rojo.&demo-url=https%3A%2F%2Fsolito.dev%2Fstarter&demo-image=https%3A%2F%2Fsolito.dev%2Fimg%2Fog.png&build-command=cd+..%2F..%3Bnpx+turbo+run+build+--filter%3Dnext-app)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fnandorojo%2Fsolito%2Ftree%2Fmaster%2Fexample-monorepos%2Fblank&env=ENABLE_ROOT_PATH_BUILD_CACHE&root-directory=apps/web&envDescription=Set%20this%20environment%20variable%20to%201%20for%20Turborepo%20to%20cache%20your%20node_modules.&envLink=https%3A%2F%2Ftwitter.com%2Fjaredpalmer%2Fstatus%2F1488954563533189124&project-name=solito-app&repo-name=solito-app&demo-title=Solito%20App%20%E2%9A%A1%EF%B8%8F&demo-description=React%20Native%20%2B%20Next.js%20starter%20with%20Solito.%20Made%20by%20Fernando%20Rojo.&demo-url=https%3A%2F%2Fsolito.dev%2Fstarter&demo-image=https%3A%2F%2Fsolito.dev%2Fimg%2Fog.png&build-command=cd+..%2F..%3Bnpx+turbo+run+build+--filter%3Dnext-app) -->
 
 ## 🔦 About
 
-This monorepo is a blank(ish) starter for an Expo + Next.js app.
-
-While it's pretty barebones, it does a lot of the annoying config for you. The folder structure is opinionated, based on my long experience building for this stack.
+This monorepo implemented `npx create-solito-app@latest`.
 
 ## 📦 Included packages
 
@@ -22,6 +20,8 @@ While it's pretty barebones, it does a lot of the annoying config for you. The f
 - `moti` for animations
 - Expo SDK 53
 - Next.js 15
+- `stripe` for payments
+- `firebase` for authentication (you can easily swap it out)
 - React Navigation 7
 - React 19 (read more below)
 - React Compiler
@@ -32,8 +32,8 @@ For more, see the [compatibility docs](https://solito.dev/compatibility).
 
 - `apps` entry points for each app
 
-  - `expo`
-  - `next`
+  - `native`
+  - `web`
 
 - `packages` shared packages across apps
   - `app` you'll be importing most files from `app/`

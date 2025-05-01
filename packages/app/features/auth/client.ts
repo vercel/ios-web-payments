@@ -1,5 +1,5 @@
 import { PUBLIC_ENV } from 'app/env/public-env'
-import { getApp, getApps, initializeApp } from 'firebase/app'
+import { initializeApp } from 'firebase/app'
 import {
   initializeAuth,
   signInAnonymously,
@@ -31,6 +31,7 @@ const getToken = async () => {
 
 export const Auth = {
   signInAnonymously: async () => {
+    // be sure to enable this in the firebase console
     const credential = await signInAnonymously(auth)
     return credential.user
   },
