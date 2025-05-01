@@ -4,7 +4,11 @@ export const SERVER_ENV = {
   STRIPE_PRODUCT_ID: process.env.STRIPE_PRODUCT_ID!,
   STRIPE_PRICE_ID: process.env.STRIPE_PRICE_ID!,
   STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET!,
-  FIREBASE_SERVICE_ACCOUNT_JSON: JSON.parse(
-    process.env.FIREBASE_SERVICE_ACCOUNT_JSON!
-  ),
+  get FIREBASE_SERVICE_ACCOUNT_JSON() {
+    const str = process.env.FIREBASE_SERVICE_ACCOUNT_JSON
+    if (!str) {
+      throw new Error('FIREBASE_SERVICE_ACCOUNT_JSON is not set')
+    }
+    return JSON.parse(str)
+  },
 }

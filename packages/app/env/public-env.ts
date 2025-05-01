@@ -13,10 +13,10 @@ export const PUBLIC_ENV = {
   BUNDLE_IDENTIFIER,
   STRIPE_CHECKOUT_URL: `https://${APP_URL}/api/stripe/checkout-session`,
   get FIREBASE_CONFIG() {
+    const str =
+      process.env.EXPO_PUBLIC_FIREBASE_CONFIG_JSON ||
+      process.env.NEXT_PUBLIC_FIREBASE_CONFIG_JSON
     // avoid throwing when it's not used on web
-    return JSON.parse(
-      (process.env.EXPO_PUBLIC_FIREBASE_CONFIG_JSON ||
-        process.env.NEXT_PUBLIC_FIREBASE_CONFIG_JSON)!
-    )
+    return JSON.parse(str!)
   },
 }
