@@ -4,6 +4,8 @@ Example app of a Solito app that uses Stripe checkout on Web with an iOS app.
 
 As of May 1, 2025, you can use web-based checkout on iOS without incurring Apple's commission.
 
+Even though you're redirecting users to Web to complete their purchase, **Apple pay is still supported**. See the demo video below.
+
 ## ⚡️ Instantly clone & deploy API routes
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fios-web-payments&env=APPLE_TEAM_ID,FIREBASE_SERVICE_ACCOUNT_JSON,NEXT_PUBLIC_APP_URL,NEXT_PUBLIC_BUNDLE_IDENTIFIER,NEXT_PUBLIC_FIREBASE_CONFIG_JSON,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_PRICE_ID,STRIPE_PRODUCT_ID,STRIPE_SECRET_KEY,STRIPE_WEBHOOK_SECRET&root-directory=apps/web)
