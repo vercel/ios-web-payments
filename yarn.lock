@@ -2943,6 +2943,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-async-storage/async-storage@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@react-native-async-storage/async-storage@npm:2.1.2"
+  dependencies:
+    merge-options: "npm:^3.0.4"
+  peerDependencies:
+    react-native: ^0.0.0-0 || >=0.65 <1.0
+  checksum: 10/d4f14fe520a1664935ea771db86be397902b743ae7dd805d7cfe142698bcb9758bfe075fe11f20347cc5551ee0673f15822be3127658957a276ac28e0c8dd5ca
+  languageName: node
+  linkType: hard
+
 "@react-native/assets-registry@npm:0.76.9":
   version: 0.76.9
   resolution: "@react-native/assets-registry@npm:0.76.9"
@@ -5936,6 +5947,7 @@ __metadata:
   resolution: "expo-app@workspace:apps/native"
   dependencies:
     "@babel/core": "npm:^7.24.0"
+    "@react-native-async-storage/async-storage": "npm:^2.1.2"
     "@types/react": "npm:~18.3.12"
     app: "npm:*"
     babel-plugin-react-compiler: "npm:19.0.0-beta-3229e95-20250315"
@@ -7560,6 +7572,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-plain-obj@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "is-plain-obj@npm:2.1.0"
+  checksum: 10/cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
+  languageName: node
+  linkType: hard
+
 "is-plain-object@npm:^2.0.4":
   version: 2.0.4
   resolution: "is-plain-object@npm:2.0.4"
@@ -8615,6 +8634,15 @@ __metadata:
   version: 6.0.0
   resolution: "memoize-one@npm:6.0.0"
   checksum: 10/28feaf7e9a870efef1187df110b876ce42deaf86c955f4111d72d23b96e44eed573469316e6ad0d2cc7fa3b1526978215617b126158015f957242c7493babca9
+  languageName: node
+  linkType: hard
+
+"merge-options@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "merge-options@npm:3.0.4"
+  dependencies:
+    is-plain-obj: "npm:^2.1.0"
+  checksum: 10/d86ddb3dd6e85d558dbf25dc944f3527b6bacb944db3fdda6e84a3f59c4e4b85231095f58b835758b9a57708342dee0f8de0dffa352974a48221487fe9f4584f
   languageName: node
   linkType: hard
 

@@ -1,10 +1,29 @@
-import { getApp } from 'firebase/app'
-import { getAuth, signInAnonymously, onIdTokenChanged } from 'firebase/auth'
+import { PUBLIC_ENV } from 'app/env/public-env'
+import { getApp, initializeApp } from 'firebase/app'
+import {
+  initializeAuth,
+  signInAnonymously,
+  onIdTokenChanged,
+  User,
+  getReactNativePersistence,
+} from 'firebase/auth'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage'
 
-const app = getApp()
-const auth = getAuth(app)
+const app = initializeApp(PUBLIC_ENV.FIREBASE_CONFIG)
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+})
 
-export const clientAuth = {
+const getToken = async () => {
+  const user = auth.currentUser
+  if (!user) return null
+  const token = await user.getIdToken()
+  return token
+}
+
+export const Auth = {
   signInAnonymously: async () => {
     const credential = await signInAnonymously(auth)
     return credential.user
@@ -12,10 +31,27 @@ export const clientAuth = {
   onIdTokenChanged: (callback: (user: null | { uid: string }) => void) => {
     onIdTokenChanged(auth, callback)
   },
-  getToken: async () => {
-    const user = auth.currentUser
-    if (!user) return null
-    const token = await user.getIdToken()
-    return token
+  getToken,
+  AuthGate({
+    children,
+  }: {
+    children: (
+      props:
+        | { loading: true }
+        | {
+            user: User | null
+          }
+    ) => React.ReactNode
+  }) {
+    const [user, setUser] = useState<User | null | undefined>(undefined)
+    useEffect(() => {
+      onIdTokenChanged(auth, setUser)
+    }, [])
+
+    if (user === undefined) {
+      return children({ loading: true })
+    }
+
+    return children({ user })
   },
 }

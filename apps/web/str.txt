@@ -1,0 +1,1 @@
+{"apiKey":"AIzaSyAeaFnSTzlsuPyb5WiRsM-XZ8A2NG-nvl0","authDomain":"solito-payments.firebaseapp.com","projectId":"solito-payments","storageBucket":"solito-payments.firebasestorage.app","messagingSenderId":"1020302395742","appId":"1:1020302395742:web:2b7ad18ce217396f99a7cf"}
