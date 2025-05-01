@@ -5,14 +5,11 @@ import {
   signInAnonymously,
   onIdTokenChanged,
   User,
-  // @ts-ignore
-  getReactNativePersistence,
   signOut,
-  getAuth,
 } from 'firebase/auth'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage'
+import persistence from './persistence'
 
 let app: ReturnType<typeof initializeApp> | undefined
 if (!app) {
@@ -21,28 +18,10 @@ if (!app) {
 let auth: ReturnType<typeof initializeAuth> | undefined
 if (!auth) {
   auth = initializeAuth(app, {
-    persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+    persistence: persistence,
   })
 }
 
-// const makeApp = (): ReturnType<typeof initializeApp> => {
-//   const [app] = getApps()
-//   if (!app) {
-//     return initializeApp(PUBLIC_ENV.FIREBASE_CONFIG)
-//   }
-
-//   return app
-// }
-
-// const makeAuth = (): ReturnType<typeof initializeAuth> => {
-//   const auth = getAuth(makeApp())
-//   if (!auth) {
-//     return initializeAuth(getApp(), {
-//       persistence: getReactNativePersistence(ReactNativeAsyncStorage),
-//     })
-//   }
-//   return auth
-// }
 const getToken = async () => {
   const user = auth.currentUser
   if (!user) return null

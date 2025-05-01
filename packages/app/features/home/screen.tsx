@@ -14,34 +14,43 @@ export function HomeScreen() {
         flex: 1,
         justifyContent: 'center',
         padding: 16,
-        gap: 32,
+        width: '100%',
       }}
     >
-      <H1>Zero-commission payments.</H1>
-      <View style={{ gap: 4, opacity: isLoading ? 0.5 : 1 }}>
-        <Button
-          inverse
-          title="Checkout"
-          onPress={async () => {
-            setIsLoading(true)
-            try {
-              const token = await Auth.getToken()
-              const session = await fetch(PUBLIC_ENV.STRIPE_CHECKOUT_URL, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  Authorization: `Bearer ${token}`,
-                },
-              }).then((res) => res.json())
-              if (session && typeof session.url === 'string') {
-                Linking.openURL(session.url)
+      <View
+        style={{
+          gap: 32,
+
+          maxWidth: 400,
+          alignSelf: 'center',
+        }}
+      >
+        <H1>Zero-commission payments.</H1>
+        <View style={{ gap: 8, opacity: isLoading ? 0.5 : 1 }}>
+          <Button
+            inverse
+            title="Checkout"
+            onPress={async () => {
+              setIsLoading(true)
+              try {
+                const token = await Auth.getToken()
+                const session = await fetch(PUBLIC_ENV.STRIPE_CHECKOUT_URL, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                  },
+                }).then((res) => res.json())
+                if (session && typeof session.url === 'string') {
+                  Linking.openURL(session.url)
+                }
+              } finally {
+                setIsLoading(false)
               }
-            } finally {
-              setIsLoading(false)
-            }
-          }}
-        />
-        <Button title="Log out" onPress={() => Auth.signOut()} />
+            }}
+          />
+          <Button title="Log out" onPress={() => Auth.signOut()} />
+        </View>
       </View>
     </View>
   )
